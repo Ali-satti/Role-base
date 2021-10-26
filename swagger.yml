@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  description: "We are going to get the role of employee"
+  version: "1.0.0"
+  title: "Role Base"
+  contact:
+    email: "Ali.Satti@wanclouds.net"
+host: "ems.swagger.io"
+basePath: "/v1"
+schemes:
+  - "http"
+paths:
+  /role:
+    get:
+      tags:
+        - "Getting Role"
+      summary: "get roles"
+      operationId: "getrole"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/role"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/rolereturn'
+        400:
+          description: Bad Rquest
+          schema:
+            type: string
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/rolereturn'
+definitions:
+  role:
+    type: object
+    required:
+      - "designation"
+      - "apiName"
+    properties:
+      designation:
+        type: string
+      apiName:
+        type: string
+  rolereturn:
+    type: object
+    required:
+      - "response"
+    properties:
+      response:
+        type: string
