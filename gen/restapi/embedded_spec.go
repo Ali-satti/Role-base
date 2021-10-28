@@ -61,15 +61,21 @@ func init() {
             }
           },
           "400": {
-            "description": "Bad Rquest",
+            "description": "Bad request",
             "schema": {
-              "type": "string"
+              "$ref": "#/definitions/rolereturn3"
             }
           },
-          "401": {
-            "description": "Unauthorized",
+          "403": {
+            "description": "Forbidden",
             "schema": {
-              "$ref": "#/definitions/rolereturn"
+              "$ref": "#/definitions/rolereturn2"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/rolereturn1"
             }
           }
         }
@@ -94,11 +100,44 @@ func init() {
     },
     "rolereturn": {
       "type": "object",
-      "required": [
-        "response"
-      ],
       "properties": {
-        "response": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn1": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn2": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn3": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
           "type": "string"
         }
       }
@@ -149,15 +188,21 @@ func init() {
             }
           },
           "400": {
-            "description": "Bad Rquest",
+            "description": "Bad request",
             "schema": {
-              "type": "string"
+              "$ref": "#/definitions/rolereturn3"
             }
           },
-          "401": {
-            "description": "Unauthorized",
+          "403": {
+            "description": "Forbidden",
             "schema": {
-              "$ref": "#/definitions/rolereturn"
+              "$ref": "#/definitions/rolereturn2"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/rolereturn1"
             }
           }
         }
@@ -182,11 +227,44 @@ func init() {
     },
     "rolereturn": {
       "type": "object",
-      "required": [
-        "response"
-      ],
       "properties": {
-        "response": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn1": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn2": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "rolereturn3": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
           "type": "string"
         }
       }

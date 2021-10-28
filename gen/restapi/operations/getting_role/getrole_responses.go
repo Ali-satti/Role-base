@@ -60,7 +60,7 @@ func (o *GetroleOK) WriteResponse(rw http.ResponseWriter, producer runtime.Produ
 // GetroleBadRequestCode is the HTTP code returned for type GetroleBadRequest
 const GetroleBadRequestCode int = 400
 
-/*GetroleBadRequest Bad Rquest
+/*GetroleBadRequest Bad request
 
 swagger:response getroleBadRequest
 */
@@ -69,7 +69,7 @@ type GetroleBadRequest struct {
 	/*
 	  In: Body
 	*/
-	Payload string `json:"body,omitempty"`
+	Payload *models.Rolereturn3 `json:"body,omitempty"`
 }
 
 // NewGetroleBadRequest creates GetroleBadRequest with default headers values
@@ -79,13 +79,13 @@ func NewGetroleBadRequest() *GetroleBadRequest {
 }
 
 // WithPayload adds the payload to the getrole bad request response
-func (o *GetroleBadRequest) WithPayload(payload string) *GetroleBadRequest {
+func (o *GetroleBadRequest) WithPayload(payload *models.Rolereturn3) *GetroleBadRequest {
 	o.Payload = payload
 	return o
 }
 
 // SetPayload sets the payload to the getrole bad request response
-func (o *GetroleBadRequest) SetPayload(payload string) {
+func (o *GetroleBadRequest) SetPayload(payload *models.Rolereturn3) {
 	o.Payload = payload
 }
 
@@ -93,48 +93,94 @@ func (o *GetroleBadRequest) SetPayload(payload string) {
 func (o *GetroleBadRequest) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
 
 	rw.WriteHeader(400)
-	payload := o.Payload
-	if err := producer.Produce(rw, payload); err != nil {
-		panic(err) // let the recovery middleware deal with this
+	if o.Payload != nil {
+		payload := o.Payload
+		if err := producer.Produce(rw, payload); err != nil {
+			panic(err) // let the recovery middleware deal with this
+		}
 	}
 }
 
-// GetroleUnauthorizedCode is the HTTP code returned for type GetroleUnauthorized
-const GetroleUnauthorizedCode int = 401
+// GetroleForbiddenCode is the HTTP code returned for type GetroleForbidden
+const GetroleForbiddenCode int = 403
 
-/*GetroleUnauthorized Unauthorized
+/*GetroleForbidden Forbidden
 
-swagger:response getroleUnauthorized
+swagger:response getroleForbidden
 */
-type GetroleUnauthorized struct {
+type GetroleForbidden struct {
 
 	/*
 	  In: Body
 	*/
-	Payload *models.Rolereturn `json:"body,omitempty"`
+	Payload *models.Rolereturn2 `json:"body,omitempty"`
 }
 
-// NewGetroleUnauthorized creates GetroleUnauthorized with default headers values
-func NewGetroleUnauthorized() *GetroleUnauthorized {
+// NewGetroleForbidden creates GetroleForbidden with default headers values
+func NewGetroleForbidden() *GetroleForbidden {
 
-	return &GetroleUnauthorized{}
+	return &GetroleForbidden{}
 }
 
-// WithPayload adds the payload to the getrole unauthorized response
-func (o *GetroleUnauthorized) WithPayload(payload *models.Rolereturn) *GetroleUnauthorized {
+// WithPayload adds the payload to the getrole forbidden response
+func (o *GetroleForbidden) WithPayload(payload *models.Rolereturn2) *GetroleForbidden {
 	o.Payload = payload
 	return o
 }
 
-// SetPayload sets the payload to the getrole unauthorized response
-func (o *GetroleUnauthorized) SetPayload(payload *models.Rolereturn) {
+// SetPayload sets the payload to the getrole forbidden response
+func (o *GetroleForbidden) SetPayload(payload *models.Rolereturn2) {
 	o.Payload = payload
 }
 
 // WriteResponse to the client
-func (o *GetroleUnauthorized) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+func (o *GetroleForbidden) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
 
-	rw.WriteHeader(401)
+	rw.WriteHeader(403)
+	if o.Payload != nil {
+		payload := o.Payload
+		if err := producer.Produce(rw, payload); err != nil {
+			panic(err) // let the recovery middleware deal with this
+		}
+	}
+}
+
+// GetroleInternalServerErrorCode is the HTTP code returned for type GetroleInternalServerError
+const GetroleInternalServerErrorCode int = 500
+
+/*GetroleInternalServerError Internal server error
+
+swagger:response getroleInternalServerError
+*/
+type GetroleInternalServerError struct {
+
+	/*
+	  In: Body
+	*/
+	Payload *models.Rolereturn1 `json:"body,omitempty"`
+}
+
+// NewGetroleInternalServerError creates GetroleInternalServerError with default headers values
+func NewGetroleInternalServerError() *GetroleInternalServerError {
+
+	return &GetroleInternalServerError{}
+}
+
+// WithPayload adds the payload to the getrole internal server error response
+func (o *GetroleInternalServerError) WithPayload(payload *models.Rolereturn1) *GetroleInternalServerError {
+	o.Payload = payload
+	return o
+}
+
+// SetPayload sets the payload to the getrole internal server error response
+func (o *GetroleInternalServerError) SetPayload(payload *models.Rolereturn1) {
+	o.Payload = payload
+}
+
+// WriteResponse to the client
+func (o *GetroleInternalServerError) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+
+	rw.WriteHeader(500)
 	if o.Payload != nil {
 		payload := o.Payload
 		if err := producer.Produce(rw, payload); err != nil {

@@ -28,15 +28,19 @@ paths:
         200:
           description: OK
           schema:
-            $ref: '#/definitions/rolereturn'
+            $ref: "#/definitions/rolereturn"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/rolereturn1"
+        403:
+          description: Forbidden
+          schema:
+            $ref: "#/definitions/rolereturn2"
         400:
-          description: Bad Rquest
+          description: Bad request
           schema:
-            type: string
-        401:
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/rolereturn'
+            $ref: "#/definitions/rolereturn3"
 definitions:
   role:
     type: object
@@ -50,8 +54,29 @@ definitions:
         type: string
   rolereturn:
     type: object
-    required:
-      - "response"
     properties:
-      response:
+      code:
+        type: integer
+      message:
+        type: string
+  rolereturn1:
+    type: object
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+  rolereturn2:
+    type: object
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+  rolereturn3:
+    type: object
+    properties:
+      code:
+        type: integer
+      message:
         type: string

@@ -14,15 +14,15 @@ func RoleBase() getting_role.GetroleHandler {
 }
 
 func (rb *rolebase) Handle(params getting_role.GetroleParams) middleware.Responder {
-	rbase,err := Service.CheckRole(toUserDomain(params.Body))
-	if err != nil{
-		return getting_role.NewGetroleBadRequest().WithPayload("Check you request again")
-		panic(err)
-	}
-	if rbase == "200"{
-		return getting_role.NewGetroleOK().WithPayload(toUserGen(rbase))
+	rbase,rmessage := Service.CheckRole(toUserDomain(params.Body))
+	if rbase == 200{
+		return getting_role.NewGetroleOK().WithPayload(toUserGen(rbase,rmessage))
+	}else if rbase == 403{
+		return getting_role.NewGetroleForbidden().WithPayload(toUserGen2(rbase,rmessage))
+	}else if rbase == 400 {
+		return getting_role.NewGetroleBadRequest().WithPayload(toUserGen3(rbase,rmessage))
 	}else {
-		return getting_role.NewGetroleUnauthorized().WithPayload(toUserGen(rbase))
+		return getting_role.NewGetroleInternalServerError().WithPayload(toUserGen1(rbase,rmessage))
 	}
 }
 
