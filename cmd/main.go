@@ -23,7 +23,9 @@ func main() {
 	flag.Parse()
 	// set the port this service will be run on
 	server.Port = *portFlag
+
 	api.GettingRoleGetroleHandler = handlers.RoleBase()
+
 	// serve API
 	if err := server.Serve(); err != nil {
 		log.Fatalln(err)
