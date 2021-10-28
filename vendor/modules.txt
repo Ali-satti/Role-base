@@ -10,9 +10,6 @@ github.com/asaskevich/govalidator
 # github.com/docker/go-units v0.4.0
 ## explicit
 github.com/docker/go-units
-# github.com/fatih/structs v1.1.0
-## explicit
-github.com/fatih/structs
 # github.com/go-openapi/analysis v0.20.1
 ## explicit; go 1.13
 github.com/go-openapi/analysis

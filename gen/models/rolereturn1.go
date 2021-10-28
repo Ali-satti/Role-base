@@ -12,10 +12,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Rolereturn rolereturn
+// Rolereturn1 rolereturn1
 //
-// swagger:model rolereturn
-type Rolereturn struct {
+// swagger:model rolereturn1
+type Rolereturn1 struct {
 
 	// code
 	Code int64 `json:"code,omitempty"`
@@ -24,18 +24,18 @@ type Rolereturn struct {
 	Message string `json:"message,omitempty"`
 }
 
-// Validate validates this rolereturn
-func (m *Rolereturn) Validate(formats strfmt.Registry) error {
+// Validate validates this rolereturn1
+func (m *Rolereturn1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this rolereturn based on context it is used
-func (m *Rolereturn) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validates this rolereturn1 based on context it is used
+func (m *Rolereturn1) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *Rolereturn) MarshalBinary() ([]byte, error) {
+func (m *Rolereturn1) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -43,8 +43,8 @@ func (m *Rolereturn) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Rolereturn) UnmarshalBinary(b []byte) error {
-	var res Rolereturn
+func (m *Rolereturn1) UnmarshalBinary(b []byte) error {
+	var res Rolereturn1
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
